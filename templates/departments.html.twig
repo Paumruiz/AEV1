@@ -1,0 +1,29 @@
+{% extends 'index.html.twig' %}
+{% block content %}
+    {% if resultados is null %}
+        0 results
+    <button><a href="/">Volver</a></button>
+    {% else %}
+    <button><a href="/">Volver</a></button>
+    <div class="center-table">
+    <table border='1'>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Ubicación</th>
+                <th>Color</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for departamento in resultados %}
+                <tr>
+                    <td><a href='/empleados/{{departamento.DEPT_NO}}'>{{ departamento.DNOMBRE|capitalize }}</a></td>
+                    <td>{{ departamento.LOC|capitalize }}</td>
+                    <td>{{ departamento.color }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    {% endif %}
+{% endblock %}

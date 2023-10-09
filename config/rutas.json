@@ -1,0 +1,34 @@
+{
+  "/": {
+    "controller": "MainController",
+    "action": "main"
+  },
+  "/listaProductos": {
+    "controller": "ListaProductosController",
+    "action": "productList"
+  },
+  "/listaClientes": {
+    "controller": "ListaClientesController",
+    "action": "clientList"
+  },
+  "/detalleCliente": {
+    "controller": "DetalleClienteController",
+    "action": "clientDetail"
+  },
+  "/departamentos": {
+    "controller": "DepartamentosController",
+    "action": "departments"
+  },
+  "/empleados": {
+    "controller": "EmpleadosController",
+    "action": "employees"
+  },
+  "/pedidos": {
+    "controller": "PedidosController",
+    "action": "orders"
+  },
+  "/detallePedido": {
+    "controller": "DetallePedidoController",
+    "action": "orderDetail"
+  }
+}

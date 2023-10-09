@@ -1,0 +1,71 @@
+{% extends "base.html.twig" %}
+{% block layout %}
+    <body>
+    <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+            <div class="container">
+
+                <a class="navbar-brand"><span class="text-danger">{{ title|capitalize }}</span></a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="/listaProductos"><small class="small-title"><strong class="text-warning">01</strong></small> Productos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="/listaClientes"><small class="small-title"><strong class="text-warning">02</strong></small> CLientes</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="/departamentos"><small class="small-title"><strong class="text-warning">03</strong></small> Departamentos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="/empleados"><small class="small-title"><strong class="text-warning">04</strong></small> Empleados</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="/pedidos"><small class="small-title"><strong class="text-warning">05</strong></small> Pedidos</a>
+                        </li>
+                    </ul>
+                <div>
+                        
+            </div>
+        </nav>
+    <div id='div-layout'>
+        <div id='content'>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+    
+    <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                        
+                    <div class="col-lg-6 col-12">
+                        <div class="site-footer-wrap d-flex align-items-center">
+                            <p class="copyright-text mb-0 me-4">Copyright © 2036 Waso Strategy Co., Ltd.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6 col-12">
+                    	<p class="copyright-text mb-0 me-4">Waso HTML Template is designed by <a href="https://www.tooplate.com/" target="_blank">Tooplate</a></p>
+                    </div>
+
+                </div>
+            </div>
+    </footer>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.sticky.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/magnific-popup-options.js"></script>
+    <script src="/js/click-scroll.js"></script>
+    <script src="/js/custom.js"></script>
+    </body>
+{% endblock %}

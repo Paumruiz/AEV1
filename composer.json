@@ -1,0 +1,18 @@
+{
+  "name": "daw-dwes/aev1-mvc-twig",
+  "authors": [
+    {
+      "name": "pablo-martinez",
+      "email": "pamaru02@floridauniversitaria.es"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "APP\\": "src/",
+      "Config\\": "config/"
+    }
+  },
+  "require": {
+    "twig/twig": "^3.7"
+  }
+}

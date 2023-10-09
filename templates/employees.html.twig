@@ -1,0 +1,40 @@
+{% extends 'index.html.twig' %}
+{% block content %}
+    {% if resultados is empty %}
+        0 results
+        <button><a href="/">Volver</a></button>
+    {% else %}
+    <button><a href="/">Volver</a></button>
+    <div class="center-table">
+    <table border='1'>
+        <thead>
+            <tr>
+                <th>Número</th>
+                <th>Apellidos</th>
+                <th>Oficio</th>
+                <th>Jefe</th>
+                <th>Fecha de alta</th>
+                <th>Salario</th>
+                <th>Comision</th>
+                <th>Departamento</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for empleados in resultados %}
+                <tr>
+                    <td>{{ empleados.EMP_NO }}</td>
+                    <td>{{ empleados.APELLIDOS|capitalize }}</td>
+                    <td>{{ empleados.OFICIO|lower }}</td>
+                    <td>{{ empleados.JEFE }}</td>
+                    <td>{{ empleados.FECHA_ALTA|date("d/m/Y") }}</td>
+                    <td>{{ empleados.SALARIO|number_format(2, '.', ',') }} €</td>
+                    <td>{{ empleados.COMISION|number_format(2, '.', ',') }} €</td>
+                    <td>{{ empleados.DEPT_NO }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    {% endif %}
+{% endblock %}

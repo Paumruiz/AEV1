@@ -1,0 +1,43 @@
+{% extends 'index.html.twig' %}
+{% block content %}
+    {% if resultados is null %}
+        0 results
+    <button><a href="/">Volver</a></button>
+    {% else %}
+    <button><a href="/">Volver</a></button>
+    <div class="center-table">
+    <table border='1'>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Ciudad</th>
+                <th>Estado</th>
+                <th>Código Postal</th>
+                <th>Área</th>
+                <th>Teléfono</th>
+                <th>Código de Representante</th>
+                <th>Límite de Crédito</th>
+                {# <th>Observaciones</th> #}
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in resultados %}
+                <tr>
+                    <td><a href='/detalleCliente/{{cliente.CLIENTE_COD}}'>{{ cliente.NOMBRE|capitalize }}</a></td>
+                    <td>{{ cliente.DIREC }}</td>
+                    <td>{{ cliente.CIUDAD|capitalize }}</td>
+                    <td>{{ cliente.ESTADO }}</td>
+                    <td>{{ cliente.COD_POSTAL }}</td>
+                    <td>{{ cliente.AREA }}</td>
+                    <td>{{ cliente.TELEFONO }}</td>
+                    <td>{{ cliente.REPR_COD }}</td>
+                    <td>{{ cliente.LIMITE_CREDITO|number_format(2, '.', ',') }} €</td>
+                    {# <td>{{ cliente.OBSERVACIONES }}</td> #}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'index.html.twig' %}
+{% block content %}
+        <button><a href="/">Volver</a></button>
+
+
+        <form action="/pedidos" method="post">
+            <label for="cliente_id">Selecciona un cliente:</label>
+            <select name="cliente_id" id="cliente_id">
+                {% for cliente in clientes %}
+                    <option value="{{ cliente.CLIENTE_COD }}" {% if cliente.CLIENTE_COD == clienteId %}selected{% endif %}>{{ cliente.NOMBRE }}</option>                
+                {% endfor %}
+            </select>
+            <button type="submit">Mostrar Pedidos</button>
+        </form>
+            
+            {% if pedidos %}
+               {#  <h2>Pedidos del cliente:</h2>
+                <ul>
+                    {% for pedido in pedidos %}
+                        <li><a href="/detallePedido/{{ pedido.PEDIDO_NUM }}">Pedido #{{ pedido.PEDIDO_NUM }}</a></li>
+                    {% endfor %}
+                </ul> #}
+        <div class="center-table">
+        <table border='1'>
+        <thead>
+            <tr>
+                <th>Número Pedido</th>
+                <th>Fecha Pedido</th>
+                <th>Tipo Pedido</th>
+                <th>Código Cliente</th>
+                <th>Fecha de envío</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pedido in pedidos %}
+                <tr>
+                    <td><a href="/detallePedido/{{ pedido.PEDIDO_NUM }}">Pedido #{{ pedido.PEDIDO_NUM }}</a></td>
+                    <td>{{ pedido.PEDIDO_FECHA }}</td>
+                    <td>{{ pedido.PEDIDO_TIPO }}</td>
+                    <td>{{ pedido.CLIENTE_COD }}</td>
+                    <td>{{ pedido.FECHA_ENVIO|date("d/m/Y") }}</td>
+                    <td>{{ pedido.TOTAL|number_format(2, '.', ',') }} €</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+            {% endif %}
+{% endblock %}

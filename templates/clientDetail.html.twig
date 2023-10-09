@@ -1,0 +1,43 @@
+{% extends "index.html.twig" %}
+{% block content %}
+    {% if resultados is null %}
+        0 results
+        <button><a href="/listaClientes">Volver</a></button>
+        <button><a href="/">Inicio</a></button>
+
+    {% else %}
+        <button><a href="/listaClientes">Volver</a></button>
+        <button><a href="/">Inicio</a></button>
+        <div class="center-table">
+        <table border='1'>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Ciudad</th>
+                <th>Estado</th>
+                <th>Código Postal</th>
+                <th>Área</th>
+                <th>Teléfono</th>
+                <th>Código de Representante</th>
+                <th>Límite de Crédito</th>
+                <th>Observaciones</th>
+            </tr>
+            <tr>
+                    <td>{{ resultados.CLIENTE_COD }}</td>
+                    <td>{{ resultados.NOMBRE|capitalize }}</td>
+                    <td>{{ resultados.DIREC }}</td>
+                    <td>{{ resultados.CIUDAD|capitalize }}</td>
+                    <td>{{ resultados.ESTADO }}</td>
+                    <td>{{ resultados.COD_POSTAL }}</td>
+                    <td>{{ resultados.AREA }}</td>
+                    <td>{{ resultados.TELEFONO }}</td>
+                    <td>{{ resultados.REPR_COD }}</td>
+                    <td>{{ resultados.LIMITE_CREDITO }}</td>
+                    <td>{{ resultados.OBSERVACIONES }}</td>
+            </tr>
+        </table>
+        </div>
+       
+    {% endif %}
+{% endblock %}

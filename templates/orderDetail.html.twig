@@ -1,0 +1,33 @@
+{% extends "index.html.twig" %}
+{% block content %}
+    {% if resultados is null %}
+        0 results
+        <button><a href="/pedidos">Volver</a></button>
+        <button><a href="/">Inicio</a></button>
+    {% else %}
+        <button><a href="/pedidos">Volver</a></button>
+        <button><a href="/">Inicio</a></button>
+        <div class="center-table">
+        <table border='1'>
+            <tr>
+                <th>Número Pedido</th>
+                <th>Número Detalle</th>
+                <th>Número Producto</th>
+                <th>Precio Venta</th>
+                <th>Cantidad</th>
+                <th>Importe</th>
+            </tr>
+            {% for detalle in resultados %}
+            <tr>
+                    <td>{{ detalle.PEDIDO_NUM }}</td>
+                    <td>{{ detalle.DETALLE_NUM }}</td>
+                    <td>{{ detalle.PROD_NUM }}</td>
+                    <td>{{ detalle.PRECIO_VENTA|number_format(2, '.', ',') }} €</td>
+                    <td>{{ detalle.CANTIDAD }}</td>
+                    <td>{{ detalle.IMPORTE|number_format(2, '.', ',') }} €</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </div>
+    {% endif %}
+{% endblock %}

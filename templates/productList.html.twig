@@ -1,0 +1,24 @@
+{% extends "index.html.twig" %}
+{% block content %}
+    {% if resultados is null %}
+        0 results
+         <button><a href="/">Volver</a></button>
+    {% else %}
+             <button><a href="/">Volver</a></button>
+
+    <div class="center-table">
+        <table border='1'>
+            <tr>
+                <th>Número de producto</th>
+                <th>Descripción</th>
+            </tr>
+            {% for producto in resultados %}
+                <tr>
+                    <td>{{producto.PROD_NUM}}</td>
+                    <td>{{producto.DESCRIPCION|lower}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endif %}
+{% endblock %}
