@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace APP\Controllers;
 
 use APP\Core\AbstractController;
-use APP\models\Empresa;
+use APP\models\Empleados;
 
 /**
  * Clase que se encarga de devolvernos una lista con todas las tareas
@@ -22,7 +22,7 @@ class EmpleadosController extends AbstractController
     public function employees(string $dept = null)
     {
         //Llamamos al modelo para poder gestionar los datos
-        $empresa = new Empresa();
+        $empleados = new Empleados();
 
         // Si se proporciona el ID del departamento, obtenemos solo los empleados de ese departamento.
         if (is_null($dept) || strcmp("", $dept) == 0) {
@@ -32,7 +32,7 @@ class EmpleadosController extends AbstractController
                 //Le pasamos los parámetros al renderizado que en este caso es únicamente los datos de la id
                 //que obtenemos del modelo.
                 [
-                    "resultados" => $empresa->findAllEmployees(),
+                    "resultados" => $empleados->findAllEmployees(),
                     'title' => 'lista de empleados'
                 ]
             );
@@ -43,7 +43,7 @@ class EmpleadosController extends AbstractController
                 //Le pasamos los parámetros al renderizado que en este caso es únicamente los datos de la id
                 //que obtenemos del modelo.
                 [
-                    "resultados" => $empresa->findEmployeesByDepartment($dept),
+                    "resultados" => $empleados->findEmployeesByDepartment($dept),
                     'title' => 'empleados del departamento ' . $dept
                 ]
 

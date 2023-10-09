@@ -6,7 +6,7 @@ use APP\Core\AbstractController;
 
 class NoRuta extends AbstractController
 {
-    public function noRuta($param = null)
+    public function noRuta()
     {
         //Ahora usamos el método extendido del AbstractController render para lanzar la plantilla de twig
         // con los parámetros necesarios.
@@ -14,7 +14,7 @@ class NoRuta extends AbstractController
             "404.html.twig",
             [
                 'title' => 'la ruta no es correcta',
-                'descripcion' => 'error: la ruta introducida no existe'
+                'descripcion' => 'error: ruta no disponible'
             ]
         );
     }

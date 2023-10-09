@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace APP\Controllers;
 
 use APP\Core\AbstractController;
-use APP\models\Empresa;
+use APP\models\Detalles;
 
 class DetallePedidoController extends AbstractController
 {
@@ -16,7 +16,7 @@ class DetallePedidoController extends AbstractController
      */
     public function orderDetail(string $pedidoId = null): void
     {
-        $empresa = new Empresa();
+        $detalles = new Detalles();
 
         if (is_null($pedidoId) || strcmp("", $pedidoId) == 0) {
             //Si no recibimos la id o está vacía pasarémos los parámetros a TWIG como nulos
@@ -34,7 +34,7 @@ class DetallePedidoController extends AbstractController
             $this->render(
                 "orderDetail.html.twig",
                 [
-                    'resultados' => $empresa->findOrderDetailsByOrder($pedidoId),
+                    'resultados' => $detalles->findOrderDetailsByOrder($pedidoId),
                     'title' => 'detalle del pedido'
 
                 ]

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace APP\Controllers;
 
 use APP\Core\AbstractController;
-use APP\models\Empresa;
+use APP\models\Productos;
 
 /**
  * Clase que se encarga de devolvernos una lista con todas las tareas
@@ -19,13 +19,13 @@ class ListaProductosController extends AbstractController
     public function productList(): void
     {
         //Llamamos al modelo para poder gestionar los datos
-        $empresa = new Empresa();
+        $productos = new Productos();
         //Para este controller vamos a utilizar la plantilla list.html.twig para poder mostrar adecuadamente los datos.
         $this->render(
             "productList.html.twig",
             //Le pasamos los parámetros al renderizado que son todos los datos que obtenemos del modelo.
             [
-                "resultados" => $empresa->findAllProducts(),
+                "resultados" => $productos->findAllProducts(),
                 'title' => 'lista de todos los productos'
             ]
         );

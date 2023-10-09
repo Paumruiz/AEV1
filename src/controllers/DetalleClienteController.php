@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace APP\Controllers;
 
 use APP\Core\AbstractController;
-use APP\models\Empresa;
+use APP\models\Clientes;
 
 class DetalleClienteController extends AbstractController
 {
@@ -27,14 +27,14 @@ class DetalleClienteController extends AbstractController
             );
         } else {
             //Llamamos al modelo para poder gestionar los datos
-            $empresa = new Empresa();
+            $clientes = new Clientes();
             //Para este controller vamos a utilizar la plantilla list.html.twig para poder mostrar adecuadamente los datos.
             $this->render(
                 "clientDetail.html.twig",
                 //Le pasamos los parámetros al renderizado que en este caso es únicamente los datos de la id
                 //que obtenemos del modelo.
                 [
-                    "resultados" => $empresa->findClientById($id),
+                    "resultados" => $clientes->findClientById($id),
                     'title' => 'detalle del cliente ' . $id
                 ]
             );
