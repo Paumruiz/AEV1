@@ -32,7 +32,7 @@ Material de apoyo:
 
 Para ello se pide:
 
-### 1. Buscar una plantilla gratuita de HTML en internet con la que debemos implementar TWIG y la herencia de este. Podéis usar las plantillas, por ejemplo, que están en la siguiente web gratuita https://all-free- download.com/free-website-templates/ o en esta otra https://templatemo.com/ lo único que no deben ser spa.
+### 1. Buscar una plantilla gratuita de HTML en internet con la que debemos implementar TWIG y la herencia de este. Podéis usar las plantillas, por ejemplo, que están en la siguiente web gratuita https://all-free-download.com/free-website-templates/ o en esta otra https://templatemo.com/ lo único que no deben ser spa.
 
 ### 2. Crea un proyecto con la estructura típica que se ha visto en el tema 1 y 2 de MVC y TWIG.
 
