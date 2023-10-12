@@ -10,15 +10,13 @@ use APP\models\Detalles;
 class DetallePedidoController extends AbstractController
 {
     /**
-     * Mostraremos la totalidad de los datos de una determinada tarea a partir de su id
-     * @param string|null $id
-     * @return void
+     * Mostraremos la totalidad de los datos de un determinado pedido a partir de su id
      */
     public function orderDetail(string $pedidoId = null): void
     {
         $detalles = new Detalles();
         if (is_null($pedidoId) || strcmp("", $pedidoId) == 0) {
-            //Si no recibimos la id o está vacía pasarémos los parámetros a TWIG como nulos
+            //Si no recibimos la id o está vacía pasamos los parámetros a TWIG como nulos
             $this->render(
                 "orderDetail.html.twig",
                 [
@@ -28,7 +26,7 @@ class DetallePedidoController extends AbstractController
             );
         } else if (is_numeric($pedidoId)) {
 
-            // Utilizamos la plantilla detallePedido.html.twig para mostrar los detalles del pedido.
+            // Utilizamos la plantilla orederDetail.html.twig para mostrar los detalles del pedido
             $this->render(
                 "orderDetail.html.twig",
                 [

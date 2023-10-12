@@ -1,8 +1,6 @@
-{% extends 'index.html.twig' %}
+{% extends 'layout.html.twig' %}
 {% block content %}
         <button><a href="/">Volver</a></button>
-
-
         <form action="/pedidos" method="post">
             <label for="cliente_id">Selecciona un cliente:</label>
             <select name="cliente_id" id="cliente_id">
@@ -12,14 +10,7 @@
             </select>
             <button type="submit">Mostrar Pedidos</button>
         </form>
-            
             {% if pedidos %}
-               {#  <h2>Pedidos del cliente:</h2>
-                <ul>
-                    {% for pedido in pedidos %}
-                        <li><a href="/detallePedido/{{ pedido.PEDIDO_NUM }}">Pedido #{{ pedido.PEDIDO_NUM }}</a></li>
-                    {% endfor %}
-                </ul> #}
         <div class="center-table">
         <table border='1'>
         <thead>

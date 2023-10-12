@@ -65,10 +65,7 @@ class DataBase implements IDataBase
         return self::$conn->query($sql)->fetch_all(MYSQLI_ASSOC);
     }
 
-    /**
-     * Método que garantiza que no dejamos la conexión abierta consumiendo recursos.
-     * OJO IMPLEMENTAR ESTE MÉTODO ÚNICAMENTE SI ESTAMOS SEGUROS QUE NO DEBEMOS DEJAR LA CONEXIÓN ABIERTA.
-     */
+
     public function __destruct()
     {
         // TODO: Implement __destruct() method.

@@ -1,10 +1,9 @@
-{% extends "index.html.twig" %}
+{% extends "layout.html.twig" %}
 {% block content %}
     {% if resultados is null %}
         0 results
         <button><a href="/listaClientes">Volver</a></button>
         <button><a href="/">Inicio</a></button>
-
     {% else %}
         <button><a href="/listaClientes">Volver</a></button>
         <button><a href="/">Inicio</a></button>
@@ -38,6 +37,5 @@
             </tr>
         </table>
         </div>
-       
     {% endif %}
 {% endblock %}

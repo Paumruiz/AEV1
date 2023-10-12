@@ -9,13 +9,11 @@ use APP\Core\AbstractController;
 class MainController extends AbstractController
 {
     /**
-     * Esta ruta es la que sale por defecto en la aplicación cuando se inicia.
-     * @return void
+     * Esta ruta es la ruta inicial, que sale por defecto cuando se inicia la aplicación
      */
     public function main(): void
     {
-        //Ahora usamos el método extendido del AbstractController render para lanzar la plantilla de twig
-        // con los parámetros necesarios.
+        //Para este controller vamos a utilizar la plantilla index.html.twig para poder mostrar adecuadamente los datos
         $this->render(
             "index.html.twig",
             [

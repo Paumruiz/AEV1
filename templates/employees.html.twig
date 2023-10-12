@@ -1,4 +1,4 @@
-{% extends 'index.html.twig' %}
+{% extends 'layout.html.twig' %}
 {% block content %}
     {% if resultados is empty %}
         0 results
@@ -35,6 +35,5 @@
         </tbody>
     </table>
     </div>
-
     {% endif %}
 {% endblock %}

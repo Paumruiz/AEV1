@@ -8,7 +8,7 @@ namespace APP\models;
 use APP\Core\DataBase;
 
 /**
- * Esta clase modela los datos obtenidos de la BB.DD. preparandolos para que los controladores puedan usarlos.
+ * Esta clase modela los datos obtenidos de la BB.DD. de la tabla clientes, preparándolos para que los controladores puedan usarlos.
  */
 class Clientes
 {

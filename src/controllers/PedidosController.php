@@ -13,20 +13,16 @@ use APP\models\Clientes;
  */
 class PedidosController extends AbstractController
 {
-    /**
-     * Muestra un desplegable con el nombre de todos los clientes.
-     *
-     * @return void
-     */
+
     public function orders(): void
     {
-        // Llamamos al modelo para obtener la lista de clientes.
+        // Llamamos al modelo para obtener la lista de clientes
         $clientes = new Clientes();
         $pedidos = new Pedidos();
 
         $listaClientes = $clientes->findAllClients();
 
-        // Si se ha seleccionado un cliente, mostramos los pedidos de ese cliente.
+        // Si se ha seleccionado un cliente, mostramos los pedidos de ese cliente
         $clienteId = $_POST['cliente_id'] ?? null;
         $listaPedidos = [];
 
@@ -34,7 +30,7 @@ class PedidosController extends AbstractController
             $listaPedidos = $pedidos->findOrdersByClient($clienteId);
         }
 
-        // Utilizamos la plantilla pedidos.html.twig para mostrar el formulario y la lista de pedidos.
+        // Utilizamos la plantilla orders.html.twig para mostrar el formulario y la lista de pedidos
         $this->render(
             "orders.html.twig",
             [

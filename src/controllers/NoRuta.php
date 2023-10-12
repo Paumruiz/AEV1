@@ -10,8 +10,6 @@ class NoRuta extends AbstractController
 {
     public function noRuta()
     {
-        //Ahora usamos el método extendido del AbstractController render para lanzar la plantilla de twig
-        // con los parámetros necesarios.
         $this->render(
             "404.html.twig",
             [
