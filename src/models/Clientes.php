@@ -32,13 +32,18 @@ class Clientes
         return $db->executeSQL($sql);
     }
 
-    public function findClientById(string $id): array
+    public function findClientById(string $id): ?array
     {
         $sql = "SELECT * FROM cliente WHERE cliente_cod =" . $id;
         //En este caso llamamos al método getInstance de la Clase DataBase y obtendremos una instancia de la misma,
         //Nosotros no debemos preocuparnos de si ya existía o no.
         $db = DataBase::getInstance();
         $result = $db->executeSQL($sql);
-        return array_shift($result);
+
+        if ($result) {
+            return array_shift($result);
+        } else {
+            return null; // Devuelve null si no se encontró ningún cliente.
+        }
     }
 }

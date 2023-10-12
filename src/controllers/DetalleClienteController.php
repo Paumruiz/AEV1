@@ -14,8 +14,10 @@ class DetalleClienteController extends AbstractController
      * @param string|null $id
      * @return void
      */
-    public function clientDetail(string $id = null)
+    public function clientDetail(string $id = null): void
     {
+        //Llamamos al modelo para poder gestionar los datos
+        $clientes = new Clientes();
         if (is_null($id) || strcmp("", $id) == 0) {
             //Si no recibimos la id o está vacía pasarémos los parámetros a TWIG como nulos
             $this->render(
@@ -25,9 +27,8 @@ class DetalleClienteController extends AbstractController
                     'title' => 'no se han recibido parámetros'
                 ]
             );
-        } else {
-            //Llamamos al modelo para poder gestionar los datos
-            $clientes = new Clientes();
+        } else if (is_numeric($id)) {
+
             //Para este controller vamos a utilizar la plantilla list.html.twig para poder mostrar adecuadamente los datos.
             $this->render(
                 "clientDetail.html.twig",
@@ -38,6 +39,9 @@ class DetalleClienteController extends AbstractController
                     'title' => 'detalle del cliente ' . $id
                 ]
             );
+        } else {
+            $noRutaController = new NoRuta();
+            $noRutaController->noRuta();
         }
     }
 }

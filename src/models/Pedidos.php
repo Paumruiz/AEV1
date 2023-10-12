@@ -30,6 +30,7 @@ class Pedidos
         //Nosotros no debemos preocuparnos de si ya existía o no.
         $db = DataBase::getInstance();
         $result = $db->executeSQL($sql);
+
         return $result;
     }
 }

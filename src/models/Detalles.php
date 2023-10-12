@@ -13,13 +13,18 @@ use APP\Core\DataBase;
 class Detalles
 {
 
-    public function findOrderDetailsByOrder(string $order): array
+    public function findOrderDetailsByOrder(string $order): ?array
     {
         $sql = "SELECT * FROM detalle WHERE pedido_num =" . $order;
         //En este caso llamamos al método getInstance de la Clase DataBase y obtendremos una instancia de la misma,
         //Nosotros no debemos preocuparnos de si ya existía o no.
         $db = DataBase::getInstance();
         $result = $db->executeSQL($sql);
-        return $result;
+
+        if ($result) {
+            return $result;
+        } else {
+            return null; // Devuelve null si no se encontró ningún cliente.
+        }
     }
 }
